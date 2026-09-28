@@ -1,0 +1,89 @@
+{
+  "source": "heygen-com/hyperframes",
+  "skills": {
+    "embedded-captions": {
+      "hash": "f1b298aa899d86df",
+      "files": 142
+    },
+    "faceless-explainer": {
+      "hash": "8b26b840d91f2b5d",
+      "files": 27
+    },
+    "figma": {
+      "hash": "642cce1b5e211182",
+      "files": 2
+    },
+    "general-video": {
+      "hash": "36b4d47cf01c451d",
+      "files": 5
+    },
+    "hyperframes": {
+      "hash": "a624fd0aa39bdd09",
+      "files": 26
+    },
+    "hyperframes-animation": {
+      "hash": "9add954e7eff1aa6",
+      "files": 122
+    },
+    "hyperframes-audio": {
+      "hash": "7e9a13aba7143c08",
+      "files": 7
+    },
+    "hyperframes-cli": {
+      "hash": "f006eefddf345fd1",
+      "files": 11
+    },
+    "hyperframes-core": {
+      "hash": "b4d9c7b3d0e5ae75",
+      "files": 11
+    },
+    "hyperframes-creative": {
+      "hash": "0803c90800fda4ce",
+      "files": 79
+    },
+    "hyperframes-keyframes": {
+      "hash": "16a7da9819e7e4ab",
+      "files": 3
+    },
+    "hyperframes-registry": {
+      "hash": "4a1a7daf23a9e569",
+      "files": 12
+    },
+    "hyperframes-studio": {
+      "hash": "b063eaa9eb1e4b9b",
+      "files": 1
+    },
+    "media-use": {
+      "hash": "b35de041b87e763d",
+      "files": 98
+    },
+    "motion-graphics": {
+      "hash": "ab9d2e9c205ce1b1",
+      "files": 23
+    },
+    "music-to-video": {
+      "hash": "190e9885dab9b11d",
+      "files": 169
+    },
+    "pr-to-video": {
+      "hash": "6ebe2e6a219d10e3",
+      "files": 33
+    },
+    "product-launch-video": {
+      "hash": "89e5fa638fb9f2c0",
+      "files": 34
+    },
+    "remotion-to-hyperframes": {
+      "hash": "1da9494cf3a6b1f3",
+      "files": 77
+    },
+    "slideshow": {
+      "hash": "e9b8ea210cfb771e",
+      "files": 2
+    },
+    "talking-head-recut": {
+      "hash": "7018bf017e8606d2",
+      "files": 28
+    }
+  }
+}

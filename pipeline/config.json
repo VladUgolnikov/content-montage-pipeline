@@ -1,0 +1,189 @@
+{
+ "paths": {
+  "sources": "~/mnt/T7 Shield",
+  "sources_on_mac": "/Volumes/T7 Shield",
+  "proxies": "<папка исходника>/Proxy/<то же имя файла>",
+  "broll_root": "../B-roll",
+  "broll_note": "Продакшн/B-roll/<съёмка>/ — у каждой съёмки свой _footage_catalog.json; подбор смотрит все",
+  "output": "reels/output",
+  "work": "/tmp/maos_work",
+  "ffmpeg": "imageio-ffmpeg (pip) — сборка с libass/libx264/libx265",
+  "note": "исходники не копируем: читаем прямо с T7; анализ — по прокси, оригинал — только на финальном рендере"
+ },
+ "video": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "crf": 18,
+  "audio": "aac 192k"
+ },
+ "pacing": {
+  "global_speed": 1.3,
+  "note": "весь ролик ×1.3, тон голоса сохраняется (atempo)"
+ },
+ "safe_box": {
+  "x0": 60,
+  "x1": 890,
+  "y0": 120,
+  "y1": 1530,
+  "note": "ВСЕ элементы внутри; правая колонка кнопок Reels — вне"
+ },
+ "framing": {
+  "base_crop_h": 1500,
+  "zoom_alt": 1.07,
+  "face_y_frac": 0.38,
+  "note": "кадр 9:16 вырезается из 4K вокруг лица; на каждой склейке чередуем 1.00/1.07 — прячет джамп-кат"
+ },
+ "asr": {
+  "model": "gigaam-v3-rnnt",
+  "quantization": "int8",
+  "path": "models/gigaam",
+  "status": "active"
+ },
+ "cut": {
+  "pad_before": 0.08,
+  "pad_after": 0.22,
+  "merge_gap": 0.25,
+  "note": "рез по словам: меньше воздуха перед словом, больше после; паузы длиннее ~0.25с вырезаются",
+  "lead_max": 0.3,
+  "lead_pad": 0.05,
+  "tail_max": 0.6,
+  "tail_pad": 0.08,
+  "min_pause": 0.4,
+  "keep_before": 0.12,
+  "keep_after": 0.1,
+  "thr_over_floor_db": 10,
+  "thr_below_peak_db": 32
+ },
+ "service_phrases": [
+  [
+   "дубль",
+   "#"
+  ],
+  [
+   "ролик",
+   "#"
+  ],
+  [
+   "этот",
+   "хороший"
+  ],
+  [
+   "этот",
+   "дубль",
+   "хороший"
+  ],
+  [
+   "хороший",
+   "дубль"
+  ],
+  [
+   "это",
+   "хороший",
+   "дубль"
+  ],
+  [
+   "неплохие",
+   "дубли"
+  ],
+  [
+   "неплохой",
+   "дубль"
+  ]
+ ],
+ "subtitles": {
+  "font_name": "Oswald",
+  "uppercase": true,
+  "font_size": 112,
+  "margin_v": 420,
+  "margin_l": 60,
+  "margin_r": 190,
+  "red_ass": "&H000F13E6",
+  "reveal": "word_by_word",
+  "block_words": 5,
+  "block_chars": 16,
+  "block_gap": 0.5,
+  "accent_words": [
+   "шум",
+   "звук",
+   "готов",
+   "законч",
+   "прибыл",
+   "выручк",
+   "маркетплейс",
+   "кризис",
+   "марж",
+   "склад",
+   "комисси",
+   "maos",
+   "морж",
+   "утечк",
+   "миллион",
+   "настолк",
+   "дыр"
+  ],
+  "censor_words": [
+   "р*блей",
+   "бесплатн*",
+   "ст*ит",
+   "подп*ска"
+  ]
+ },
+ "hook": {
+  "dur": 2.0,
+  "head_font": "Oswald",
+  "head_px": 108,
+  "hand_font": "Caveat",
+  "hand_px": 150,
+  "color": "#F1F1EF",
+  "outline": "#171717 3px",
+  "x": 475,
+  "head_y": 230,
+  "hand_y": 335
+ },
+ "lower_third": {
+  "name": "Влад Угольников",
+  "role": "основатель ZUBRO · строю MAOS",
+  "font": "Golos Text",
+  "dur": 3.0
+ },
+ "inserts": {
+  "appear_ms": 85,
+  "sfx_db": -13,
+  "style": "радиус 10px + рамка 1px #111111 + тень",
+  "card_xy": [
+   175,
+   1000
+  ],
+  "min_show_s": 1.5
+ },
+ "broll": {
+  "min_s": 1.3,
+  "prefer": "vertical",
+  "note": "подбор по тегам из _footage_catalog.json"
+ },
+ "colorgrade": {
+  "ffmpeg": "eq=brightness=-0.02:contrast=1.03:saturation=0.92,colorbalance=rm=-0.015:gm=0.02:bm=-0.005:rs=-0.02:gs=0.01,unsharp=5:5:0.3:5:5:0.0",
+  "note": "26.09: убран розовый оттенок кожи (свет в комнате даёт мадженту)"
+ },
+ "music": {
+  "required_from": 0,
+  "level_db": -18,
+  "duck_db": "-2..-4 под речью",
+  "fade_in_ms": 100,
+  "fade_out_ms": 300
+ },
+ "voice": {
+  "chain": "afftdn=nr=18:nf=-42,highpass=f=80,loudnorm=I=-14:TP=-1.5:LRA=11"
+ },
+ "qa_before_export": [
+  "субтитры на месте и не прыгают",
+  "хук есть, не мелкий",
+  "вставка со звуком, не на лице/субтитрах, в safe_box",
+  "музыка с кадра 0 (когда появится в банке)"
+ ],
+ "sources_rule": "исходники не удалять и не копировать; результат в reels/output",
+ "tools": {
+  "chatcut": "плагин Claude/Claude Code — генерация музыки/sfx/графики (опциональный запасной вариант)"
+ }
+}

@@ -1,0 +1,21 @@
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+# модель речи качается bridge/setup_models.sh
+pipeline/models/gigaam/*.onnx
+# рабочие и временные файлы конвейера
+pipeline/reels/output/*
+pipeline/bridge/jobs/*
+pipeline/bridge/logs/*
+pipeline/bridge/done/*
+pipeline/bridge/running/*
+pipeline/bridge/heartbeat.json
+pipeline/bridge/selftest.json
+pipeline/_archive/*
+pipeline/_sync/*
+# ключи — никогда в git
+*Apify*.json
+*.key
+.env
+!**/.gitkeep
